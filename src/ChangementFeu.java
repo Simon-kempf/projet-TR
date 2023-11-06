@@ -21,13 +21,13 @@ public class ChangementFeu extends Thread {
 			attendre(duree_feu);
 			if(Carrefour.feu == 1) {
 				Carrefour.feu = 2;
-				Carrefour.trafficlight2.setIcon(new ImageIcon("res/green.jpg"));
+				Carrefour.trafficlight2.setIcon(new ImageIcon("res/greenV.jpg"));
 				Carrefour.trafficlight1.setIcon(new ImageIcon("res/red.jpg"));
 			}
 			else {
 				Carrefour.feu = 1;
 				Carrefour.trafficlight1.setIcon(new ImageIcon("res/green.jpg"));
-				Carrefour.trafficlight2.setIcon(new ImageIcon("res/red.jpg"));
+				Carrefour.trafficlight2.setIcon(new ImageIcon("res/redV.jpg"));
 			}
 		}
 	}

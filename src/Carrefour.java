@@ -32,22 +32,58 @@ public class Carrefour {
 		}
 		for(int k = 0; k < n2; k++) {
 			JLabel car = new JLabel();
-			car.setIcon(new ImageIcon("res/car.png"));
+			car.setIcon(new ImageIcon("res/carV.png"));
 			car.setBounds(0, 5*Carrefour.SIZE, Carrefour.SIZE, Carrefour.SIZE);
 			cars2.add(car);
 			container.add(car);
 		}
 	    for(int i = 0; i < SIZE_MAX; i++) {
 	    	for(int j = 0; j < SIZE_MAX; j++) {
-	    		if(i == 4 || j == 4) {
+	    		if(i == 4 && j == 4) {
+	    			JLabel road1 = new JLabel();
+	    			road1.setIcon(new ImageIcon("res/road2.jpg"));
+	    			road1.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
+	    			container.add(road1);
+	    		}
+	    		else if(i == 4 && j == 5) {
+	    			JLabel road1 = new JLabel();
+	    			road1.setIcon(new ImageIcon("res/road2IV.jpg"));
+	    			road1.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
+	    			container.add(road1);
+	    		}
+	    		else if(i == 5 && j == 4) {
+	    			JLabel road1 = new JLabel();
+	    			road1.setIcon(new ImageIcon("res/road2V.jpg"));
+	    			road1.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
+	    			container.add(road1);
+	    		}
+	    		else if(i == 5 && j == 5) {
+	    			JLabel road1 = new JLabel();
+	    			road1.setIcon(new ImageIcon("res/road2I.jpg"));
+	    			road1.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
+	    			container.add(road1);
+	    		}
+	    		else if(i == 4) {
 	    			JLabel road1 = new JLabel();
 	    			road1.setIcon(new ImageIcon("res/road.jpg"));
 	    			road1.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
 	    			container.add(road1);
 	    		}
-	    		else if(i == 5 || j == 5) {
+	    		else if(i == 5) {
 	    	        JLabel road2 = new JLabel();
-	    			road2.setIcon(new ImageIcon("res/road2.jpg"));
+	    			road2.setIcon(new ImageIcon("res/roadI.jpg"));
+	    			road2.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
+	    			container.add(road2);
+	    		}
+	    		else if(j == 4) {
+	    			JLabel road1 = new JLabel();
+	    			road1.setIcon(new ImageIcon("res/roadV.jpg"));
+	    			road1.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
+	    			container.add(road1);
+	    		}
+	    		else if(j == 5) {
+	    	        JLabel road2 = new JLabel();
+	    			road2.setIcon(new ImageIcon("res/roadIV.jpg"));
 	    			road2.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
 	    			container.add(road2);
 	    		}
@@ -59,7 +95,7 @@ public class Carrefour {
 	    		}
 	    		else if(i == 3 && j == 6) {
 	    			trafficlight2 = new JLabel();
-	    			trafficlight2.setIcon(new ImageIcon("res/red.jpg"));
+	    			trafficlight2.setIcon(new ImageIcon("res/redV.jpg"));
 	    			trafficlight2.setBounds(i*SIZE, j*SIZE, SIZE, SIZE);
 	    			container.add(trafficlight2);
 	    		}
