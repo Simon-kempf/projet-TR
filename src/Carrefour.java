@@ -1,18 +1,24 @@
 import java.awt.Container;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
+
 import javax.swing.*;
 
 public class Carrefour {
 	
 	public static int SIZE = 64;
 	public static int SIZE_MAX = 10;
-	public static int n1 = 10;
-	public static int n2 = 10;
+	public static int n1 = 4;
+	public static int n2 = 4;
+	public static int n3 = 4;
+	public static int n4 = 4;
 	
 	public static ArrayList<JLabel> cars1 = new ArrayList<JLabel>();
 	public static ArrayList<JLabel> cars2 = new ArrayList<JLabel>();
-	public static boolean engage = false;
+	public static ArrayList<JLabel> cars3 = new ArrayList<JLabel>();
+	public static ArrayList<JLabel> cars4 = new ArrayList<JLabel>();
+	public static Semaphore engage = new Semaphore(1);
 	public static int feu = 1;
 	public static JFrame frame;
 	public static JLabel trafficlight1;
@@ -33,8 +39,22 @@ public class Carrefour {
 		for(int k = 0; k < n2; k++) {
 			JLabel car = new JLabel();
 			car.setIcon(new ImageIcon("res/carV.png"));
-			car.setBounds(0, 5*Carrefour.SIZE, Carrefour.SIZE, Carrefour.SIZE);
+			car.setBounds(-1, 5*Carrefour.SIZE, Carrefour.SIZE, Carrefour.SIZE);
 			cars2.add(car);
+			container.add(car);
+		}
+		for(int k = 0; k < n3; k++) {
+			JLabel car = new JLabel();
+			car.setIcon(new ImageIcon("res/carI.png"));
+			car.setBounds(4*Carrefour.SIZE, -1, Carrefour.SIZE, Carrefour.SIZE);
+			cars3.add(car);
+			container.add(car);
+		}
+		for(int k = 0; k < n4; k++) {
+			JLabel car = new JLabel();
+			car.setIcon(new ImageIcon("res/carIV.png"));
+			car.setBounds(Carrefour.SIZE*Carrefour.SIZE_MAX, 4*Carrefour.SIZE, Carrefour.SIZE, Carrefour.SIZE);
+			cars4.add(car);
 			container.add(car);
 		}
 	    for(int i = 0; i < SIZE_MAX; i++) {
@@ -112,10 +132,16 @@ public class Carrefour {
         frame.setVisible(true);
 	    new ChangementFeu().start();
 	    for(int i = 0; i < n1; i++) {
-	    	new VoitureFeu1(i).start();
+	    	new VoitureFeu1(i, false).start();
 	    }
 	    for(int i = 0; i < n2; i++) {
-	    	new VoitureFeu2(i).start();
+	    	new VoitureFeu2(i, false).start();
+	    }
+	    for(int i = 0; i < n3; i++) {
+	    	new VoitureFeu1(i, true).start();
+	    }
+	    for(int i = 0; i < n4; i++) {
+	    	new VoitureFeu2(i, true).start();
 	    }
 		
 	}
